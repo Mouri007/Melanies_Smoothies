@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col ,when_matched
 import streamlit as st
 
@@ -11,7 +10,9 @@ st.write(
     Orders that need to filled
     """)
 
-session = get_active_session()
+
+cnx = st.connection("Snowflake")
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 
 if my_dataframe:
