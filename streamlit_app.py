@@ -1,4 +1,4 @@
-# Import python packages
+perimental_# Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col ,when_matched
 import streamlit as st
@@ -11,7 +11,7 @@ st.write(
     """)
 
 
-cnx = st.connection("Snowflake")
+cnx = st.experimental_connection("Snowflake")
 session = cnx.session()
 my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED")==0).collect()
 
