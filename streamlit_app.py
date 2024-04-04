@@ -26,11 +26,11 @@ if ing_list:
       ing_string = ''
 
       for fruit_chossen in ing_list:
-          ing_string += fruit_chossen + ', 
-          st.subheader(fruit_chosen + 'Nutrition Information')
-          fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + friut_chosen)
-          fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)'
-          #st.write(ing_string)
+               ing_string += fruit_chossen + ', 
+               st.subheader(fruit_chosen + 'Nutrition Information')
+               fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + friut_chosen)
+               fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)'
+               #st.write(ing_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
             values ('""" + ing_string + """','"""+ name_on_order+"""')"""
